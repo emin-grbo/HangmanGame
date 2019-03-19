@@ -12,21 +12,33 @@ class ViewController: UIViewController {
   
   var letters = [UIButton]()
   let buttonsView = UIView()
+  let label = UILabel()
   
   override func loadView() {
     view = UIView()
     view.backgroundColor = .cyan
     
-    buttonsView.translatesAutoresizingMaskIntoConstraints = false
+    label.text = "??????????"
+    label.font = UIFont.systemFont(ofSize: 36)
+    view.addSubview(label)
+    
     buttonsView.backgroundColor = .orange
     view.addSubview(buttonsView)
     
+    // TAMIC
+    label.translatesAutoresizingMaskIntoConstraints = false
+    buttonsView.translatesAutoresizingMaskIntoConstraints = false
+    //-------------------------------------------------------------
+
     // Keyboard view layout
     NSLayoutConstraint.activate([
       buttonsView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -10),
       buttonsView.heightAnchor.constraint(equalToConstant: 200),
       buttonsView.widthAnchor.constraint(equalToConstant: 280),
-      buttonsView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+      buttonsView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      
+      label.bottomAnchor.constraint(equalTo: buttonsView.topAnchor, constant: -40),
+      label.centerXAnchor.constraint(equalTo: view.centerXAnchor)
       ])
     
     // Generating keyboard
@@ -45,13 +57,7 @@ class ViewController: UIViewController {
     //-------------------------------------------------------------
     
     
-    let label = UILabel()
-    label.text = "TEST"
-    view.addSubview(label)
-    
-    label.translatesAutoresizingMaskIntoConstraints = false
-    label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-    label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+
     
     
   }
